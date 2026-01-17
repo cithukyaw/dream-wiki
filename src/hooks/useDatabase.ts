@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { db, type Definition } from '@/lib/db';
-import { sampleData } from '@/lib/sampleData';
+import sampleData from '@/data/sampleData.json';
 
 export function useDatabase() {
   const [isLoading, setIsLoading] = useState(true);

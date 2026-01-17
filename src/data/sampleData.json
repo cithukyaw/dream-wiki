@@ -1,4 +1,4 @@
-export const sampleData: Record<string, string[]> = {
+{
   "dreams": [
     "A dream is a succession of images, ideas, emotions, and sensations that occur involuntarily in the mind during certain stages of sleep.",
     "Lucid dreaming is a type of dream where the dreamer becomes aware that they are dreaming while still in the dream state.",
@@ -34,4 +34,4 @@ export const sampleData: Record<string, string[]> = {
     "Animals also experience REM sleep and are believed to dream.",
     "Sleep deprivation can lead to increased dreaming when sleep is finally obtained."
   ]
-};
+}
