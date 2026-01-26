@@ -3,8 +3,9 @@ import { SearchResults } from '@/components/SearchResults';
 import { EmptyState } from '@/components/EmptyState';
 import { useDatabase } from '@/hooks/useDatabase';
 import { useSearch } from '@/hooks/useSearch';
-import { Cloud, Wifi, WifiOff } from 'lucide-react';
+import { Wifi, WifiOff } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import logo from '../img/logo.png';
 
 const Index = () => {
   const { definitions, isLoading } = useDatabase();
@@ -28,8 +29,8 @@ const Index = () => {
     <div className="min-h-screen px-4 py-12 md:py-20">
       {/* Header */}
       <header className="text-center mb-12 animate-slide-up">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <Cloud className="h-10 w-10 text-primary" />
+        <div className="flex items-baseline justify-center gap-3 mb-4">
+          <img src={logo} className="w-12" alt="DreamWiki" />
           <h1 className="text-5xl md:text-6xl font-display font-semibold text-foreground tracking-tight">
             DreamWiki
           </h1>
@@ -37,7 +38,7 @@ const Index = () => {
         <p className="text-lg text-muted-foreground max-w-md mx-auto">
           Your offline encyclopedia of dreams and their meanings
         </p>
-        
+
         {/* Online/Offline indicator */}
         <div className="flex items-center justify-center gap-2 mt-4">
           {isOnline ? (
@@ -57,9 +58,9 @@ const Index = () => {
       {/* Search */}
       <main className="max-w-4xl mx-auto">
         <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
-          <SearchBox 
-            value={query} 
-            onChange={setQuery} 
+          <SearchBox
+            value={query}
+            onChange={setQuery}
             disabled={isLoading}
           />
         </div>
