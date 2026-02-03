@@ -35,8 +35,8 @@ const Index = () => {
             DreamWiki
           </h1>
         </div>
-        <p className="text-lg text-muted-foreground max-w-md mx-auto">
-          Your offline encyclopedia of dreams and their meanings
+        <p className="text-lg text-muted-foreground max-w-md mx-auto font-my">
+          သင့်လက်ထဲက အိပ်မက်အဘိဓာန်
         </p>
 
         {/* Online/Offline indicator */}

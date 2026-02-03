@@ -29,7 +29,7 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search the dream encyclopedia..."
         disabled={disabled}
-        className="dream-search-box pl-14 font-body"
+        className="dream-search-box pl-14 font-my"
         autoFocus
       />
     </div>
