@@ -18,9 +18,9 @@ export function useSearch(definitions: Definition[]) {
   const fuse = useMemo(() => {
     return new Fuse(definitions, {
       keys: ['text', 'category'],
-      threshold: 0.4,
+      threshold: 0.2,
       includeScore: true,
-      minMatchCharLength: 2,
+      minMatchCharLength: 3,
     });
   }, [definitions]);
 
