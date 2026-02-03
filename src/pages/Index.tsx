@@ -79,7 +79,8 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="text-center mt-20 text-sm text-muted-foreground/60">
-        <p>Works offline • Powered by IndexedDB</p>
+        <p className="my">ဆရာဖြိုး၏ အိပ်မက်အဘိဓာန်ကို ကိုးကားသည်။</p>
+        <p>Works offline</p>
       </footer>
     </div>
   );
