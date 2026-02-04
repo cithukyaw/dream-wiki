@@ -93,4 +93,4 @@ Issues and PRs are welcome. Please run `npm run lint` and `npm test` before subm
 
 ## License
 
-This repository does not currently declare a license. If you plan to distribute or open‑source it, consider adding a `LICENSE` file (e.g., MIT).
+This project is licensed under the MIT License. See `LICENSE` for details.
