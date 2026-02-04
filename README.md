@@ -2,6 +2,8 @@
 
 A fast, offline‑capable Burmese dream encyclopedia search app built with React, TypeScript, and Vite. It indexes JSON database and provides instant fuzzy search with keyboard navigation. Designed to work great on desktop and mobile and supports installation as a PWA.
 
+(The project template was started with Vibe Coding in [Lovable.dev](https://lovable.dev/))
+
 ဆရာဖြိုး၏ အိပ်မက်အဘိဓာန်ကို ကိုးကားသည်။
 
 ## Features
