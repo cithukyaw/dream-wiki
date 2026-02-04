@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# Dream Wiki (အိပ်မက်ကျမ်း)
 
-## Project info
+A fast, offline‑capable Burmese dream encyclopedia search app built with React, TypeScript, and Vite. It indexes JSON database and provides instant fuzzy search with keyboard navigation. Designed to work great on desktop and mobile and supports installation as a PWA.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+ဆရာဖြိုး၏ အိပ်မက်အဘိဓာန်ကို ကိုးကားသည်။
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Instant client‑side search (Fuse.js) over local JSON data
+- Clean UI with shadcn/ui + Tailwind CSS
+- Dark/light theme support (via `next-themes`)
+- Client‑side routing (React Router)
+- Offline support and installable PWA (vite-plugin-pwa)
+- IndexedDB caching (Dexie) and smooth UX
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- React, TypeScript, Vite
+- [Tailwind CSS](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/), [Lucide icons](https://lucide.dev/guide/packages/lucide-react)
+- React Router, TanStack Query
+- [Fuse.js](https://www.fusejs.io/) for fuzzy search
+- [Dexie](https://dexie.org/) (IndexedDB)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+Prerequisites:
+- Node.js 18+ and npm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Install and run locally:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+cd dream-wiki
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Build and preview production build:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run build
+npm run preview
+```
 
-**Use GitHub Codespaces**
+Lint:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```sh
+npm run lint
+```
 
-## What technologies are used for this project?
+## Project Structure
 
-This project is built with:
+Key paths:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `src/pages/Index.tsx` – main page and layout
+- `src/components/` – UI components (search box, results, etc.)
+- `src/hooks/useSearch.ts` – search logic using Fuse.js
+- `src/data/` – local JSON datasets that power search (e.g., `က.json`, `ခ.json`, `မ.json`, `ဝ.json`)
+- `public/` – static assets; PWA icons/manifest are generated via plugin config
 
-## How can I deploy this project?
+## Working with Data
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- Add or update JSON files under `src/data`. Filenames may be Unicode (e.g., Burmese letters). Ensure your editor and OS preserve UTF‑8 filenames and file encodings.
+- Each JSON file should follow the same shape as existing ones so the search index remains consistent.
 
-## Can I connect a custom domain to my Lovable project?
+## PWA Notes
 
-Yes, you can!
+- This project uses `vite-plugin-pwa` to enable offline usage and “Install App”.
+- After running `npm run build`, the service worker is generated. Make sure to serve the `dist` folder over HTTPS when testing installability.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This is a static site – you can host the `dist` folder on any static host (Vercel, Netlify, GitHub Pages, Cloudflare Pages, S3, etc.).
+
+General steps:
+1. `npm run build`
+2. Deploy the generated `dist/` directory
+
+GitHub Pages tip (Vite base path): set `base` in `vite.config.ts` to `'/<repo-name>/'` if deploying to `https://<user>.github.io/<repo-name>/`.
+
+## Available Scripts (from package.json)
+
+- `dev` – start Vite dev server
+- `build` – create production build
+- `build:dev` – build with development mode flags
+- `preview` – preview the production build locally
+- `test` / `test:watch` – run unit tests
+- `lint` – run ESLint
+
+## Contributing
+
+Issues and PRs are welcome. Please run `npm run lint` and `npm test` before submitting changes.
+
+## License
+
+This repository does not currently declare a license. If you plan to distribute or open‑source it, consider adding a `LICENSE` file (e.g., MIT).
