@@ -33,9 +33,11 @@
       // Respect system theme: add/remove the `dark` class on <html>
       (function () {
         try {
-          var root = document.documentElement;
-          var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-          var apply = function () {
+          const root = document.documentElement;
+          const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+          // Only auto-apply when there is no explicit user override
+          const apply = function () {
+            if (root.hasAttribute('data-theme-override')) return;
             if (mql && mql.matches) root.classList.add('dark');
             else root.classList.remove('dark');
           };
