@@ -11,6 +11,7 @@ const Index = () => {
   const { definitions, isLoading } = useDatabase();
   const { query, setQuery, groupedResults, hasResults } = useSearch(definitions);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const dt = new Date();
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
@@ -78,9 +79,9 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="text-center mt-20 text-sm text-muted-foreground/60">
+      <footer className="text-center mt-20 text-sm text-muted-foreground/70">
         <p className="my">ဆရာဖြိုး၏ အိပ်မက်အဘိဓာန်ကို ကိုးကားသည်။</p>
-        <p>Works offline</p>
+        <p>&copy;{dt.getFullYear()}</p>
       </footer>
     </div>
   );
