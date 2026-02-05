@@ -127,7 +127,7 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
 
   return (
     <div className="relative w-full max-w-2xl mx-auto">
-      <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
         <Search className="h-6 w-6 text-muted-foreground/50" />
       </div>
       <input
@@ -137,7 +137,7 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
         onChange={(e) => onChange(e.target.value)}
         placeholder={ph}
         disabled={disabled}
-        className="dream-search-box pl-14 font-my"
+        className="dream-search-box pl-12 font-my"
         autoFocus
       />
     </div>
