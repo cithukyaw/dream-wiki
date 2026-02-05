@@ -6,9 +6,9 @@ A fast, offline‑capable Burmese dream encyclopedia search app built with React
 
 ## Data Source
 
-ဆရာဖြိုး၏ အိပ်မက်အဘိဓာန်ကို ကိုးကားသည်။
+ဆရာဖြိုး၏ **အိပ်မက်အဘိဓာန်** စာအုပ်ကို ကိုးကားသည်။
 
-Powered by IndexedDB from a collection of JSON files. All JSON data are programmatically converted from the photos taken from the book "အိပ်မက်အဘိဓာန်" using GEMINI API (`gemini-3-flash` model). See the repo [Dream Wiki Seeder](https://github.com/cithukyaw/dream-wiki-seeder)
+Powered by IndexedDB from a collection of JSON files. All JSON data are programmatically converted from the scans of the book "အိပ်မက်အဘိဓာန်" (over 400 pages) using GEMINI API with `gemini-3-flash` model. See the repo [Dream Wiki Seeder](https://github.com/cithukyaw/dream-wiki-seeder)
 
 ## Features
 

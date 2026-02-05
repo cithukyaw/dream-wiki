@@ -80,7 +80,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="text-center mt-20 text-sm text-muted-foreground/70">
-        <p className="my">ဆရာဖြိုး၏ အိပ်မက်အဘိဓာန်ကို ကိုးကားသည်။</p>
+        <p className="my">ဆရာဖြိုး၏ အိပ်မက်အဘိဓာန် စာအုပ်ကို ကိုးကားသည်။</p>
         <p>&copy;{dt.getFullYear()}</p>
       </footer>
     </div>
