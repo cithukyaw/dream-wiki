@@ -8,6 +8,7 @@ interface SearchBoxProps {
 }
 
 export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const defaultPlaceholder = 'Search the dream encyclopedia..'
   const placeholders = [
@@ -121,6 +122,7 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
 
   // Ensure the search box is moved into view on mobile when the keyboard opens
   const handleFocus = () => {
+    inputRef.current.placeholder = 'Type in Burmese';
     // stop placeholder animation once user focuses
     stopAnimation();
     // try to bring the input to the very top so results stay visible
@@ -138,6 +140,7 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
           <Search className="h-6 w-6 text-muted-foreground/50" />
         </div>
         <input
+          ref={inputRef}
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
