@@ -93,15 +93,8 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
     };
 
     // kick off typing
-    schedule(typeStep, 300);
+    schedule(typeStep, 1000);
   };
-
-  useEffect(() => {
-    if (!disabled) {
-      // wait a tick so focus happens after re-render/enabled
-      requestAnimationFrame(() => inputRef.current?.focus());
-    }
-  }, [disabled]);
 
   // Start the typing demo once loading is done (disabled === false) and only when input is empty.
   useEffect(() => {
