@@ -123,7 +123,7 @@
 
 @layer components {
   .dream-search-box {
-    @apply w-full px-6 py-5 text-xl rounded-2xl border-2 border-transparent bg-card/80 backdrop-blur-sm;
+    @apply w-full px-6 py-5 text-xl rounded-2xl border-2 border-primary/20 bg-card/80 backdrop-blur-sm;
     box-shadow: var(--dream-shadow);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
