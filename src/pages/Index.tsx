@@ -29,7 +29,7 @@ const Index = () => {
   return (
     <div className="min-h-screen px-4 py-12 md:py-20">
       {/* Header */}
-      <header className="text-center mt-2 mb-12 animate-slide-up">
+      <header className="text-center my-2 animate-slide-up">
         <div className="flex items-baseline justify-center gap-3 mb-4">
           <img src={logo} className="w-12" alt="DreamWiki" />
           <h1 className="text-5xl md:text-6xl font-display font-semibold text-foreground tracking-tight">

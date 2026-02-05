@@ -8,14 +8,15 @@ interface SearchBoxProps {
 }
 
 export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const topRef = useRef<HTMLDivElement>(null);
+  const defaultPlaceholder = 'Search the dream encyclopedia..'
   const placeholders = [
     'ဆံပင်ညှပ်',
     'ကိုယ်ဝန်ဆောင်',
     'ဖိနပ်အသစ်',
-    'Search the dream encyclopedia...'
+    defaultPlaceholder
   ];
-  const [ph, setPh] = useState('Search the dream encyclopedia...');
+  const [ph, setPh] = useState(defaultPlaceholder);
 
   // typing animation controller
   const timersRef = useRef<number[]>([]);
@@ -103,7 +104,7 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
       stopAnimation();
       // restore default placeholder if user has input
       if (value && value.length > 0) {
-        setPh('Search the dream encyclopedia...');
+        setPh(defaultPlaceholder);
       }
       return;
     }
@@ -125,36 +126,28 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
     // try to bring the input to the very top so results stay visible
     if (typeof window !== 'undefined') {
       requestAnimationFrame(() => {
-        // First, ensure the input itself is aligned to the top of viewport
-        inputRef.current?.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
-        // Then, nudge window to top shortly after to compensate for mobile keyboard viewport shifts
-        window.setTimeout(() => {
-          try {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          } catch {
-            // no-op
-          }
-        }, 60);
+        topRef.current?.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
       });
     }
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto">
-      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-        <Search className="h-6 w-6 text-muted-foreground/50" />
+    <div className="pt-10" ref={topRef}>
+      <div className="relative w-full max-w-2xl mx-auto">
+        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <Search className="h-6 w-6 text-muted-foreground/50" />
+        </div>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          onFocus={handleFocus}
+          placeholder={ph}
+          disabled={disabled}
+          className="dream-search-box pl-12 font-my"
+          autoFocus
+        />
       </div>
-      <input
-        ref={inputRef}
-        type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        onFocus={handleFocus}
-        placeholder={ph}
-        disabled={disabled}
-        className="dream-search-box pl-12 font-my"
-        autoFocus
-      />
     </div>
   );
 }
