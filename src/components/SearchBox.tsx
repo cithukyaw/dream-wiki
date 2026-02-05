@@ -125,6 +125,27 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disabled, value]);
 
+  // Ensure the search box is moved into view on mobile when the keyboard opens
+  const handleFocus = () => {
+    // stop placeholder animation once user focuses
+    stopAnimation();
+    // try to bring the input to the very top so results stay visible
+    if (typeof window !== 'undefined') {
+      requestAnimationFrame(() => {
+        // First, ensure the input itself is aligned to the top of viewport
+        inputRef.current?.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
+        // Then, nudge window to top shortly after to compensate for mobile keyboard viewport shifts
+        window.setTimeout(() => {
+          try {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } catch {
+            // no-op
+          }
+        }, 60);
+      });
+    }
+  };
+
   return (
     <div className="relative w-full max-w-2xl mx-auto">
       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -135,6 +156,7 @@ export function SearchBox({ value, onChange, disabled }: SearchBoxProps) {
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onFocus={handleFocus}
         placeholder={ph}
         disabled={disabled}
         className="dream-search-box pl-12 font-my"
